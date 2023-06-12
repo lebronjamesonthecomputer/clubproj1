@@ -1,1 +1,62 @@
-
+<html>
+    <head>
+        <title>Project</title>
+		<style>
+			fieldset { width: 500px; border: 2px ridge #eaeaea;
+						padding: 10px;}
+			legend {font-weight: bold;}
+            th {
+                text-align: right;
+            }
+		</style>
+    </head>
+    <body>
+        <h1>Welcome to GGC Sample Club!</h1>
+		<p>Please provide the following information for registration<br>
+            Required Fields are marked with a *</p>
+        <form method = "post" action = "Lab3.php">
+			<fieldset>
+				<table>         
+					<tr>
+					<th>Name <span color="red">*</span> </th>
+						<td><input type = "text" name = "myName" placeholder = "Enter your name" required = "required">
+					</tr>
+					<tr>
+					<th>Email <span color="red">*</span> </th>
+					<td><input type = "email" name = "email" 
+						placeholder = "Input your email"  required = "required"></td>
+					</tr>
+          <tr>
+					<th>Password <span color="red">*</span> </th>
+					<td><input type = "password" name = "password" 
+						placeholder = "Input your password"  required = "required"></td>
+					</tr>
+                    <th>Phone </th>
+					<td><input type = "text" name = "phone" 
+						placeholder = "Input your phone #"></td>
+					</tr>
+        <tr>
+          <p>1. What is the decimal value of the binary number 100? (50 Points)</p>
+						<input name = "Q1" type = "radio" value = "A" id = "Q1A"><label for ="Q1A">A. 100</label><br>
+						<input name = "Q1" type = "radio" value = "B" id = "Q1B"><label for ="Q1B">B. 10</label><br>
+						<input name = "Q1" type = "radio" value = "C" id = "Q1C"><label for ="Q1C">C. 4</label><br>
+						<input name = "Q1" type = "radio" value = "D" id = "Q1D"><label for ="Q1D">D. 2</label><br>
+        </tr>
+					<tr>
+					<th>Major </th>
+						<td><select size = "1" name = "level">
+						<option value = "dm">Digital Media</option>
+						<option value = "sd">Software Development</option>
+						<option value = "ss">System & Security</option>
+						<option value = "es">Enterprise Systems</option>
+						<option value = "da">Data Analytics</option>
+ 						<option value = "other">Other</option>
+						</select></td>
+					</tr>
+				</table>
+			</fieldset>
+            <input type = "submit" value = "Register">
+            <input type="reset">
+        </form>
+    </body>
+</html> 
