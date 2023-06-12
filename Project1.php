@@ -9,9 +9,11 @@
 
         greeting($_POST["myName"]);
         
-        echo "Thank you for taking the ITEC student survey.<br><br>";
-        echo "Your Email: " . $_POST["email"] . "<br>";
-        echo "Your level: " . $_POST["level"] . "<br><br>";
+        echo "Thank you for taking the student survey.<br><br>";
+        echo "Email: " . $_POST["email"] . "<br>";
+        echo "Phone: " . $_POST["phone"] . "<br>";
+        echo "Gender: " . $_POST["gender"] . "<br>";
+        echo "level: " . $_POST["level"] . "<br><br>";
 
         echo "Your answers for the ITEC knowledge quiz:<br>";
         echo "Q1: ". $_POST["Q1"] . "<br>";
