@@ -1,67 +1,246 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>5-30</title>
-		<style>
-			fieldset { width: 500px; border: 2px ridge #eaeaea;
-						padding: 10px;}
-			legend {font-weight: bold;}
-		</style>
-    </head>
-    <body>
-        <h1>ITEC Student Survey</h1>
-		<p>Required Fields are marked with a *</p>
-        <form method = "post" action = "6-1.php">
-			<fieldset>
-			<legend>Personal Information</legend>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GGC Fashion Club</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="main.js"></script>
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+<body>
+<video autoplay muted loop id="myVideo">
+  <source src="main.mp4" type="video/mp4">
+</video>
+<form id = "regForm" method = "post" action = "Project1.php">
+<h1><span style = 'color: #F78C58';>Welcome to GGC Fashion Club</span></h1>
+
+<!-- One "tab" for each step in the form: -->
+<div class="tab">
+	<table>
+	  <tr><td>Name</td></tr>
+	  <tr><td><input type = "text" oninput="this.className = ''" name = "myName" placeholder = "First" required = "required"></td></tr>
+	  <tr><td><input type = "text"  oninput="this.className = ''" name = "myName" placeholder = "Last" required = "required"></td></tr>
+	</table>
+</div>
+<div class="tab">
+	<table>
+	  <tr><td>Contact</td></tr>
+	  <tr><td><input type = "email" name = "email" oninput="this.className = ''"
+						placeholder = "Input your email"  required = "required"></td></tr>
+	  <tr><td><input type = "text" name = "phone" oninput="this.className = ''"
+						placeholder = "Input your phone #"></td></tr>
+	</table>
+</div>
+
+<div class="tab">
+  	<table>
+		<tr><td>Birthday</td></tr>
+		<tr><td><input type = "date" name = "luckyDay" oninput="this.className = ''" required = "required"></td></tr>
+	</table>
+</div>
+<div class="tab">
+	<table>
+	<tr><td>Gender</td></tr>
+	<tr><td><input name = "gender" type = "text" oninput="this.className = ''" placeholder = "Enter your gender" id = "Q1C"></td></tr>
+	</table>
+</div>
+<div class="tab">
 				<table>
-					<tr>
-					<th>Name * </th>
-						<td><input type = "text" name = "myName" placeholder = "Enter your name" required = "required"
-					</tr>
-					<tr>
-					<th>Email * </th>
-					<td><input type = "email" name = "email" 
-						placeholder = "Input your email"  required = "required"></td>
-					</tr>
-					<tr>
-					<th>Level * </th>
-						<td><select size = "1" name = "level"  required = "required">
-						<option value = "freshmen">Freshmen</option>
-						<option value = "sophomore">Sophomore</option>
-						<option value = "junior">Junior</option>
-						<option value = "senior">Senior</option>
+				<tr><th>Major</th></tr>
+						<tr><td><select size = "1" name = "level">
+						<option value = "Digital Media" oninput="this.className = ''">Digital Media</option>
+						<option value = "Software Development" oninput="this.className = ''">Software Development</option>
+						<option value = "System & Security" oninput="this.className = ''">System & Security</option>
+						<option value = "Enterprise Systems" oninput="this.className = ''">Enterprise Systems</option>
+						<option value = "Data Analytics" oninput="this.className = ''">Data Analytics</option>
+ 						<option value = "other" >Other</option>
 						</select></td>
 					</tr>
 				</table>
-			</fieldset>
-			<br>
-			<fieldset>
-				<legend>ITEC Knowledge Quiz</legend>
-					<p>1. What is the decimal value of the binary number 100? (50 Points)</p>
-						<input name = "Q1" type = "radio" value = "A" id = "Q1A"><label for ="Q1A">A. 100</label><br>
-						<input name = "Q1" type = "radio" value = "B" id = "Q1B"><label for ="Q1B">B. 10</label><br>
-						<input name = "Q1" type = "radio" value = "C" id = "Q1C"><label for ="Q1C">C. 4</label><br>
-						<input name = "Q1" type = "radio" value = "D" id = "Q1D"><label for ="Q1D">D. 2</label><br>
-						
-					<p>2. Which of the following is the largest? (50 Points)</p>
-						<select size = "4" name = "Q2">
-							<option value = "A">A. 1 KB</option>
-							<option value = "B">B. 1 M</option>
-							<option value = "C">C. 1 GB</option>
-							<option value = "D">D. 1 TB</option>
-							<option value = "E">E. 1 PB</option>
-							<option value = "F">F. 1 EB</option>
+</div>
+<div style="overflow:auto;">
+  <div style="float:right;">
+      <br>
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+    <span class="step"></span>
+
+</div>
+ <div class="container">
+	<section id="slider">
+		<div class="slider-content">
+			<div class="image image-first" data-href="#" data-click="0">
+				<div class="slider-item">
+					<div class="item-img-1" data-src="leonard-cotte-R5scocnOOdM-unsplash-1.jpg"></div>
+					<div class="item-img-2" data-src="photo-1568322445389-e9093c2695c7.jpg"></div>
+				</div>
+				<span class="image-text">Paris<br>
+				<span class = "image-question">
+						<div id = "wrapper">
+						<p>Who is currently creative director at<br>Louis Vuitton</p><br>
+						<input name = "Q1" type = "radio" value = "A" id = "Q1A"><label for ="Q1A">Louis Vuitton</label>
+						<input name = "Q1" type = "radio" value = "B" id = "Q1B"><label for ="Q1B">Vergil Abloh</label>
+						<input name = "Q1" type = "radio" value = "C" id = "Q1C"><label for ="Q1C">Kanye West</label>
+						<input name = "Q1" type = "radio" value = "D" id = "Q1D"><label for ="Q1D">Pharell Williams</label>
+                        </div>
+					</span>
+                    </span>
+			</div>
+			<div class="image" data-href="#" data-click="0">
+				<div class="slider-item">
+					<div class="item-img-1" data-src="83e46a7f870f2cb78a4ace47a4c2ee56.jpg"></div>
+					<div class="item-img-2" data-src="navigli-district-milan-whpq5trnovk63sfp.jpg"></div>
+				</div>
+				<span class="image-text">Milan<br>
+				<span class = "image-question">
+					<div id = "wrapper">						
+                        <p>What brand are the models<br>wearing in the video</p>
+						<input name = "Q2" type = "radio" value = "A" id = "Q2A"><label for ="Q2A">A. Gucci</label>
+						<input name = "Q2" type = "radio" value = "B" id = "Q2B"><label for ="Q2B">B. Versace</label>
+						<input name = "Q2" type = "radio" value = "C" id = "Q2C"><label for ="Q2C">C. Nike</label>
+						<input name = "Q2" type = "radio" value = "D" id = "Q2D"><label for ="Q2D">D. dunno</label>
+						</div>
+					</span>
+                    </span>
+			</div>
+			<div class="image" data-href="#" data-click="0">
+				<div class="slider-item">
+					<div class="item-img-1" data-src="nyc-photography-tudor-city.jpg"></div>
+					<div class="item-img-2" data-src="xavier-portela-new-york-glow-7.jpg"></div>
+				</div>
+				<span class="image-text">New York<br>
+				<span class = "image-question">
+                        <div id = "wrapper">
+                            <table>
+						<tr><th>Which cities are the top 3 grossing fashion capitals?</th></tr>
+						<tr><td><input type = "checkbox" id = "Q3A" value = "yes" name="Q3A"><label for ="Q3A">A. Milan</label></td></tr>
+						<tr><td><input type = "checkbox" id = "Q3B" value = "yes" name="Q3B"><label for ="Q3B">B. Tokyo</label></td></tr>
+						<tr><td><input type = "checkbox" id = "Q3C" value = "yes" name="Q3C"><label for ="Q3C">C. Paris</label></td></tr>
+						<tr><td><input type = "checkbox" id = "Q3D" value = "yes" name="Q3D"><label for ="Q3D">D. New York</label></td></tr>
+                        </table>
+                        </div>
+					</span>
+                    </span>
+			</div>
+			<div class="image image-last" data-href="#" data-click="0">
+				<div class="slider-item">
+					<div class="item-img-1" data-src="desktop-wallpaper-s-h-i-b-u-y-a-cyberpunk-aesthetic-city-aesthetic-shibuya-neon.jpg"></div>
+					<div class="item-img-2" data-src="photo-1540959733332-eab4deabeeaf.jpg"></div>
+				</div>
+				<span class="image-text">Tokyo<br>
+				<span class = "image-question">
+                        <div id = "wrapper">
+                        
+						<h3>Most profitable clothing brand in Japan?</h3>
+						<select size = "2" name = "Q4">
+							<option value = "A">Yohji Yamamoto</option>
+							<option value = "B">UNIQLO</option>
+							<option value = "C">COMME des GARCONS</option>
+							<option value = "D">Bathing Ape</option>
+							<option value = "E">GU</option>
 						</select>
-					<p>(Extra Credit) What are the CIA Triad in information security?</p>
-					<input type = "checkbox" id = "Q3A" value = "yes" name="Q3A"><label for ="Q3A">A. Confidentiality</label><br>
-					<input type = "checkbox" id = "Q3B" value = "yes" name="Q3B"><label for ="Q3B">B. Integrity</label><br>
-					<input type = "checkbox" id = "Q3C" value = "yes" name="Q3C"><label for ="Q3C">C. Availability</label><br>
-					<input type = "checkbox" id = "Q3D" value = "yes" name="Q3D"><label for ="Q3D">D. Accessability</label><br>
-			</fieldset>
-            <br><br>
-            <input type = "submit" value = "Submit">
-            <input type="reset">
-        </form>
-    </body>
-</html> 
+                        
+                        </div>
+					</span>
+                    </span>
+			</div>
+		</div>
+</div>
+
+					
+	
+
+	</section>
+    </form>
+	<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script>
+
+</body>
+
+</html>
+
+
